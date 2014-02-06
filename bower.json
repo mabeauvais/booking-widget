@@ -1,0 +1,8 @@
+{
+  "name": "booking-widget",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.10.2"
+  },
+  "devDependencies": {}
+}
