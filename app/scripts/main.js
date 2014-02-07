@@ -3,7 +3,6 @@
 (function() {
 
   var button = document.getElementById('cg-booking-widget');
-  var iframe = document.createElement('iframe');
 
   var isDev = function() {
     var env = button.getAttribute('data-env');
@@ -48,7 +47,8 @@
     }
   };
 
-  var buildIFrame = function(iframe, url) {
+  var buildIFrame = function(url) {
+    var iframe = document.createElement('iframe');
 
     iframe.id            = 'booking-widget';
     iframe.src           = url;
@@ -69,7 +69,7 @@
     var I18n = parseLocale(locale);
     var url  = buildUrl(clubId, I18n.tld, I18n.lang);
 
-    buildIFrame(iframe, url);
+    buildIFrame(url);
 
     button.onclick = toggleWidget;
 
