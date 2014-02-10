@@ -1,0 +1,113 @@
+///////////////////////////////////////////////////////////////
+//
+//  CSS
+//  Name:     Portable Booking Widget
+//  Story:    As a golf player, I want to find a tee-time at
+//            on a golf course so that I can book it.
+//
+///////////////////////////////////////////////////////////////
+
+@import compass
+
+// VARIABLES //////////////////////////////////////////////////
+
+$color-grey         : #D9D9D9
+$color-green        : green
+
+$button-width       : 50px
+$button-height      : 200px
+
+$frame-width        : 320px
+$frame-border-width : 1px
+
+$wrapper-width      : $button-width + $frame-width
+
+
+
+//////////////////////////////////////////////////////////////
+
+//
+//  WRAPPER
+//
+#cg-booking-widget
+  width: $wrapper-width
+
+  position: fixed
+  top: 0
+  bottom: 0
+
+  +transition-property(left, right)
+  +transition-duration(200ms, 200ms)
+  +transition-timing-function(ease-in-out, ease-in-out)
+
+  //
+  //  OPTION: RIGHT
+  //
+  &.cg--right
+    right: ($frame-width + $frame-border-width) * -1
+
+    #cg-booking-button
+      left: 0
+
+    #cg-booking-frame
+      right: 0
+      border-left-width: $frame-border-width
+
+    //
+    //  TOGGLE VISIBILITY
+    //
+    &.cg--show
+      right: 0
+
+  //
+  //  OPTION: LEFT
+  //
+  &.cg--left
+    left: ($frame-width + $frame-border-width) * -1
+
+    #cg-booking-button
+      right: 0
+
+    #cg-booking-frame
+      left: 0
+      border-right-width: $frame-border-width
+
+    //
+    //  TOGGLE VISIBILITY
+    //
+    &.cg--show
+      left: 0
+
+
+
+//
+//  BUTTON
+//
+#cg-booking-button
+  display: block
+  width: $button-width
+  height: $button-height
+
+  position: absolute
+
+  background-color: $color-green
+
+  // Default top
+  top: 100px
+
+
+
+//
+//  FRAME
+//
+#cg-booking-frame
+  display: block
+  width: $frame-width
+
+  border-style: solid
+  border-color: $color-grey
+
+  position: absolute
+  top: 0
+  bottom: 0
+
