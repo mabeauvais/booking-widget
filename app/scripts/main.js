@@ -2,10 +2,11 @@
 
 (function() {
 
-  var button = document.getElementById('cg-booking-widget');
+  var wrapper = document.getElementById('cg-booking-widget');
+  var button  = document.getElementById('cg-booking-button');
 
   var isDev = function() {
-    var env = button.getAttribute('data-env');
+    var env = wrapper.getAttribute('data-env');
     return (env === 'dev') ? true : false;
   };
 
@@ -38,33 +39,36 @@
   };
 
   var toggleWidget = function() {
-    var el = document.getElementById('booking-widget');
+    // var el = document.getElementById('cg-booking-frame');
 
-    if (el.style.display === 'none') {
-      el.style.display = 'block';
-    } else {
-      el.style.display = 'none';
-    }
+    // if (el.style.display === 'none') {
+    //   el.style.display = 'block';
+    // } else {
+    //   el.style.display = 'none';
+    // }
   };
 
   var buildIFrame = function(url) {
     var iframe = document.createElement('iframe');
 
-    iframe.id            = 'booking-widget';
+    iframe.id            = 'cg-booking-frame';
     iframe.src           = url;
-    iframe.style.display = 'none';
+    // iframe.style.display = 'none';
     iframe.scrolling     = 'auto';
     iframe.width         = '33%';
     iframe.height        = '100%';
+    iframe.marginHeight  = '0';
+    iframe.marginWidth   = '0';
+    iframe.frameBorder   = '0';
 
-    document.body.appendChild(iframe);
+    wrapper.appendChild(iframe);
   };
 
 
   var main = function() {
 
-    var clubId = button.getAttribute('data-id');
-    var locale = button.getAttribute('data-locale');
+    var clubId = wrapper.getAttribute('data-id');
+    var locale = wrapper.getAttribute('data-locale');
 
     var I18n = parseLocale(locale);
     var url  = buildUrl(clubId, I18n.tld, I18n.lang);
