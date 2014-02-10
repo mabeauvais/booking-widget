@@ -1,9 +1,10 @@
 'use strict';
 
+// 3. add/remove class when button is clicked
+
 (function() {
 
   var wrapper = document.getElementById('cg-booking-widget');
-  var button  = document.getElementById('cg-booking-button');
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -38,14 +39,32 @@
     }
   };
 
-  var toggleWidget = function() {
-    // var el = document.getElementById('cg-booking-frame');
+  var listenForCallback = function(url) {
+    var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
+    var eventer = window[eventMethod];
+    var messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
 
-    // if (el.style.display === 'none') {
-    //   el.style.display = 'block';
-    // } else {
-    //   el.style.display = 'none';
-    // }
+    eventer(messageEvent, function (e) {
+      if (e.data === 'closeIframe') {
+        toggleWidget();
+        document.getElementById('cg-booking-frame').remove();
+        buildIFrame(url);
+      }
+    }, false);
+  };
+
+  var toggleWidget = function() {
+    var el = document.getElementById('cg-booking-widget');
+    var classNames = el.className.split(' ');
+    var isShown = (classNames.indexOf('cg--show') === -1) ? false : true;
+
+    if (isShown === false) {
+      el.setAttribute('class', classNames[0] + ' ' + 'cg--show');
+    } else {
+      el.setAttribute('class', classNames[0]);
+    }
+
+    return false;
   };
 
   var buildIFrame = function(url) {
@@ -53,7 +72,6 @@
 
     iframe.id            = 'cg-booking-frame';
     iframe.src           = url;
-    // iframe.style.display = 'none';
     iframe.scrolling     = 'auto';
     iframe.width         = '33%';
     iframe.height        = '100%';
@@ -64,6 +82,25 @@
     wrapper.appendChild(iframe);
   };
 
+  var buildImg = function(lang) {
+    var imgUrl = 'images/cg-booking-button-' + lang + '.png';
+    var image = document.createElement('img');
+
+    image.src = imgUrl;
+
+    return image;
+  };
+
+  var buildButton = function(lang) {
+    var button   = document.createElement('a');
+    var image = buildImg(lang);
+
+    button.id = 'cg-booking-button';
+    button.href = '';
+    button.appendChild(image);
+    wrapper.appendChild(button);
+    return button;
+  };
 
   var main = function() {
 
@@ -73,11 +110,11 @@
     var I18n = parseLocale(locale);
     var url  = buildUrl(clubId, I18n.tld, I18n.lang);
 
+    var button = buildButton(I18n.lang);
     buildIFrame(url);
-
     button.onclick = toggleWidget;
+    listenForCallback(url);
 
-    // 3. Break out the of the page when booking is submitted
   };
 
   main();
