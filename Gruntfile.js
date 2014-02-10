@@ -41,6 +41,10 @@ module.exports = function (grunt) {
       gruntfile: {
         files: ['Gruntfile.js']
       },
+      compass: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['compass:server']
+      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -261,6 +265,28 @@ module.exports = function (grunt) {
     //     dist: {}
     // },
 
+    compass: {
+      options: {
+        sassDir: '<%= yeoman.app %>/styles',
+        cssDir: '.tmp/styles',
+        generatedImagesDir: '.tmp/images/generated',
+        imagesDir: '<%= yeoman.app %>/images',
+        javascriptsDir: '<%= yeoman.app %>/scripts',
+        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        importPath: '<%= yeoman.app %>/bower_components',
+        httpImagesPath: '/images',
+        httpGeneratedImagesPath: '/images/generated',
+        httpFontsPath: '/styles/fonts',
+        relativeAssets: false
+      },
+      dist: {},
+      server: {
+        options: {
+          debugInfo: true
+        }
+      }
+    },
+
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
@@ -292,12 +318,14 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up build process
     concurrent: {
       server: [
+        'compass',
         'copy:styles'
       ],
       test: [
         'copy:styles'
       ],
       dist: [
+        'compass',
         'copy:styles',
         'imagemin',
         'svgmin'
@@ -313,6 +341,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'compass:server',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -336,12 +365,14 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'connect:test',
+      'compass',
       'mocha'
     ]);
   });
 
   grunt.registerTask('build', [
     'clean:dist',
+    'compass:dist',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
