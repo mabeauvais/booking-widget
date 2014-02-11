@@ -11,6 +11,11 @@
     return (env === 'dev') ? true : false;
   };
 
+  var isStaging = function() {
+    var env = wrapper.getAttribute('data-env');
+    return (env === 'staging') ? true : false;
+  };
+
   var tldLookup = {
     'CA': 'ca',
     'US': 'com',
@@ -34,8 +39,10 @@
   var buildUrl = function(clubId, tld, lang) {
     if (isDev()) {
       return 'http://chronodev.' + tld + ':5000/' + lang + '/golf_clubs/widget/' + clubId;
+    } else if (isStaging()) {
+      return 'http://staging.chronogolf.' + tld + '/' + lang + '/golf_clubs/widget/' + clubId;
     } else {
-      return 'http://chronogolf.' + tld + '/' + lang + '/golf_clubs/widget/' + clubId;
+      return 'http://www.chronogolf.' + tld + '/' + lang + '/golf_clubs/widget/' + clubId;
     }
   };
 
