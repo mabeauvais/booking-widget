@@ -118,7 +118,7 @@
     var cssLink = $('<link>', {
       rel: 'stylesheet',
       type: 'text/css',
-      href: amazonUrl + 'styles/main.css'
+      href: amazonUrl + 'cg-booking-widget.css'
     });
     cssLink.appendTo('head');
   };
