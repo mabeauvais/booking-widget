@@ -47,8 +47,8 @@
   };
 
   var listenForCallback = function(url) {
-    var eventMethod = window.addEventListener ? 'addEventListener' : 'attachEvent';
-    var eventer = window[eventMethod];
+    var eventMethod  = window.addEventListener ? 'addEventListener' : 'attachEvent';
+    var eventer      = window[eventMethod];
     var messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
 
     eventer(messageEvent, function (e) {
@@ -61,9 +61,9 @@
   };
 
   var toggleWidget = function() {
-    var el = document.getElementById('cg-booking-widget');
+    var el         = document.getElementById('cg-booking-widget');
     var classNames = el.className.split(' ');
-    var isShown = (classNames.indexOf('cg--show') === -1) ? false : true;
+    var isShown    = (classNames.indexOf('cg--show') === -1) ? false : true;
 
     if (isShown === false) {
       el.setAttribute('class', classNames[0] + ' ' + 'cg--show');
@@ -91,7 +91,7 @@
 
   var buildImg = function(lang) {
     var imgUrl = 'images/cg-booking-button-' + lang + '.png';
-    var image = document.createElement('img');
+    var image  = document.createElement('img');
 
     image.src = imgUrl;
 
@@ -100,10 +100,11 @@
 
   var buildButton = function(lang) {
     var button   = document.createElement('a');
-    var image = buildImg(lang);
+    var image    = buildImg(lang);
 
-    button.id = 'cg-booking-button';
+    button.id   = 'cg-booking-button';
     button.href = '';
+
     button.appendChild(image);
     wrapper.appendChild(button);
     return button;
@@ -116,7 +117,8 @@
 
   var loadCSS = function(amazonUrl) {
     var cssLink = document.createElement('link');
-    cssLink.rel = 'stylesheet';
+
+    cssLink.rel  = 'stylesheet';
     cssLink.type = 'text/css';
     cssLink.href = amazonUrl + 'cg-booking-widget.css';
 
@@ -140,7 +142,6 @@
     buildIFrame(url);
     button.onclick = toggleWidget;
     listenForCallback(url);
-
   };
 
   main();
