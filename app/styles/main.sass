@@ -41,41 +41,38 @@ $wrapper-width      : $button-width + $frame-width
   +transition-timing-function(cubic-bezier(0.230,  1.000, 0.320, 1.000))
 
   //
-  //  OPTION: RIGHT
+  //  POSITION: RIGHT (default)
   //
-  &.cg--right
-    right: ($frame-width + $frame-border-width) * -1
+  right: ($frame-width + $frame-border-width) * -1
 
-    #cg-booking-button
-      left: 0
+  #cg-booking-button
+    left: 0
 
-    #cg-booking-frame
-      right: 0
-      // border-left-width: $frame-border-width
+  #cg-booking-frame
+    right: 0
 
-    //
-    //  TOGGLE VISIBILITY
-    //
-    &.cg--show
-      right: 0
+
+  &.cg--show
+    right: 0
 
   //
-  //  OPTION: LEFT
+  //  POSITION: LEFT
   //
   &.cg--left
+    right: auto
     left: ($frame-width + $frame-border-width) * -1
 
     #cg-booking-button
+      left: auto
       right: 0
 
     #cg-booking-frame
+      right: auto
       left: 0
-      // border-right-width: $frame-border-width
 
-    //
-    //  TOGGLE VISIBILITY
-    //
+
     &.cg--show
+      right: auto
       left: 0
 
 
@@ -114,10 +111,9 @@ $wrapper-width      : $button-width + $frame-width
   display: block
   width: $frame-width
 
-  border-style: solid
-  border-color: $color-grey
-
   position: absolute
   top: 0
   bottom: 0
+
+  background-color: $color-grey
 
