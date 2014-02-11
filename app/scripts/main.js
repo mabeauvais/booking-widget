@@ -5,8 +5,6 @@
 (function() {
 
   var wrapper = document.getElementById('cg-booking-widget');
-  var defaultTld  = 'com';
-  var defaultLang = 'en';
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -20,29 +18,16 @@
   };
 
   var getTld = function(countryCode) {
-    var tld =  tldLookup[countryCode];
-    return tld === undefined ? 'com' : tld;
-  };
-
-  var getLang = function(lang) {
-    return lang === undefined ? 'en' : lang;
+    return tldLookup[countryCode];
   };
 
   var parseLocale = function(locale) {
-    var tld, lang;
-
-    if (locale === null) {
-      tld = defaultTld;
-      lang = defaultLang;
-    } else {
-      var info = locale.split('-');
-      tld  = getTld(info[1]);
-      lang = getLang(info[0]);
-    }
+    var info = locale.split('-');
+    var tld  = getTld(info[1]);
 
     return {
       tld: tld,
-      lang: lang
+      lang: info[0]
     };
   };
 
@@ -126,7 +111,7 @@
     setPosition();
 
     var clubId = wrapper.getAttribute('data-id');
-    var locale = wrapper.getAttribute('data-locale');
+    var locale = wrapper.getAttribute('data-locale') || 'en-US';
     var I18n   = parseLocale(locale);
     var url    = buildUrl(clubId, I18n.tld, I18n.lang);
 
