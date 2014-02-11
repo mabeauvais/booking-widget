@@ -5,6 +5,8 @@
 (function() {
 
   var wrapper = document.getElementById('cg-booking-widget');
+  var defaultTld  = 'com';
+  var defaultLang = 'en';
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -18,16 +20,29 @@
   };
 
   var getTld = function(countryCode) {
-    return tldLookup[countryCode];
+    var tld =  tldLookup[countryCode];
+    return tld === undefined ? 'com' : tld;
+  };
+
+  var getLang = function(lang) {
+    return lang === undefined ? 'en' : lang;
   };
 
   var parseLocale = function(locale) {
-    var info = locale.split('-');
-    var tld  = getTld(info[1]);
+    var tld, lang;
+
+    if (locale === null) {
+      tld = defaultTld;
+      lang = defaultLang;
+    } else {
+      var info = locale.split('-');
+      tld  = getTld(info[1]);
+      lang = getLang(info[0]);
+    }
 
     return {
       tld: tld,
-      lang: info[0]
+      lang: lang
     };
   };
 
@@ -102,13 +117,18 @@
     return button;
   };
 
+  var setPosition = function() {
+    var position = wrapper.getAttribute('data-position');
+    if (position === 'left') { wrapper.setAttribute('class', 'cg--left'); }
+  };
+
   var main = function() {
+    setPosition();
 
     var clubId = wrapper.getAttribute('data-id');
     var locale = wrapper.getAttribute('data-locale');
-
-    var I18n = parseLocale(locale);
-    var url  = buildUrl(clubId, I18n.tld, I18n.lang);
+    var I18n   = parseLocale(locale);
+    var url    = buildUrl(clubId, I18n.tld, I18n.lang);
 
     var button = buildButton(I18n.lang);
     buildIFrame(url);
