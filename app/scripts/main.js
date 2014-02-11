@@ -115,12 +115,6 @@
   };
 
   var loadCSS = function(amazonUrl) {
-    // var cssLink = $('<link>', {
-    //   rel: 'stylesheet',
-    //   type: 'text/css',
-    //   href: amazonUrl + 'styles/main.css'
-    // });
-    // cssLink.appendTo('head');
     var cssLink = document.createElement('link');
     cssLink.rel = 'stylesheet';
     cssLink.type = 'text/css';
