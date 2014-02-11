@@ -122,7 +122,7 @@
     cssLink.type = 'text/css';
     cssLink.href = amazonUrl + 'cg-booking-widget.css';
 
-    document.getElementByTagName('head').appendChild(cssLink);
+    document.getElementsByTagName('head').appendChild(cssLink);
   };
 
   var main = function() {
