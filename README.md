@@ -1,5 +1,6 @@
-<span style="float: right;">[Instructions en Français ci-dessous](#fr)</span>
+[Instructions en Français, cliquez-ici.](#fr)
 
+---
 ![Chronogolf][crest]
 
 Chronogolf Booking Widget
@@ -44,6 +45,7 @@ Copyright © 2014 Chronogolf Inc.
 
 [crest]: http://chronogolf.s3.amazonaws.com/promotionals/logos/cg-crest.png
 
+---
 <a name="fr"></a>
 
 ![Chronogolf][crest]
