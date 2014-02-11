@@ -21,8 +21,8 @@ This plugin installs Chronogolf's booking widget on your golf club's website.
 ## Options
 Options can be passed via data attributes. Append the option name to `data-`, as in `data-position=""`.
 
-name | type | description | values| default 
---- | --- | --- | ---
+name | type | description | values | default 
+--- | --- | --- | --- | ---
 position | string | Position of the button | left, right | 'right'
 
 ## Regional Settings
@@ -50,7 +50,7 @@ Copyright © 2014 Chronogolf Inc.
 
 ![Chronogolf][crest]
 
-Widget de Réservation de Chronogolf
+Widget de réservation de Chronogolf
 ==============
 
 Ce module installe le widget de réservation de Chronogolf sur le site web de votre club de golf.
@@ -68,8 +68,8 @@ Ce module installe le widget de réservation de Chronogolf sur le site web de vo
 ## Options
 Les options peuvent être configurées au travers des attributs “data”. Annexez le nom de l’option à `data-`, par exemple `data-position=""`.
 
-nom | type | description | valeurs |défaut
---- | --- | --- | ---
+nom | type | description | valeurs | défaut
+--- | --- | --- | --- | ---
 position | string | Position du bouton | left, right | 'right'
 
 ## Paramètres régionaux
