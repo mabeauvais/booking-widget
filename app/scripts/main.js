@@ -114,7 +114,21 @@
     if (position === 'left') { wrapper.setAttribute('class', 'cg--left'); }
   };
 
+  var loadCSS = function(amazonUrl) {
+    var cssLink = $('<link>', {
+      rel: 'stylesheet',
+      type: 'text/css',
+      href: amazonUrl + 'styles/main.css'
+    });
+    cssLink.appendTo('head');
+  };
+
   var main = function() {
+    if (!isDev()) {
+      var amazonUrl = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
+      loadCSS(amazonUrl);
+    }
+
     setPosition();
 
     var clubId = wrapper.getAttribute('data-id');
