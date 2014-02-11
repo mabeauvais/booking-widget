@@ -115,12 +115,18 @@
   };
 
   var loadCSS = function(amazonUrl) {
-    var cssLink = $('<link>', {
-      rel: 'stylesheet',
-      type: 'text/css',
-      href: amazonUrl + 'cg-booking-widget.css'
-    });
-    cssLink.appendTo('head');
+    // var cssLink = $('<link>', {
+    //   rel: 'stylesheet',
+    //   type: 'text/css',
+    //   href: amazonUrl + 'styles/main.css'
+    // });
+    // cssLink.appendTo('head');
+    var cssLink = document.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.type = 'text/css';
+    cssLink.href = amazonUrl + 'cg-booking-widget.css';
+
+    document.getElementByTagName('head').appendChild(cssLink);
   };
 
   var main = function() {
