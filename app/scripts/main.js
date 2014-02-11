@@ -5,6 +5,7 @@
 (function() {
 
   var wrapper = document.getElementById('cg-booking-widget');
+  var amazonUrl = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -91,6 +92,9 @@
 
   var buildImg = function(lang) {
     var imgUrl = 'images/cg-booking-button-' + lang + '.png';
+    if (!isDev()) {
+      imgUrl = amazonUrl + imgUrl;
+    }
     var image  = document.createElement('img');
 
     image.src = imgUrl;
@@ -127,7 +131,6 @@
 
   var main = function() {
     if (!isDev()) {
-      var amazonUrl = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
       loadCSS(amazonUrl);
     }
 
