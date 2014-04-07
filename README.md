@@ -36,7 +36,7 @@ Locale | Country | Language
 `fr-FR`|France|French
 
 ## Demo
-http://chronogolf.s3.amazonaws.com/booking-widget/demo.html
+http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html
 
 
 ## Licence
@@ -83,7 +83,7 @@ Locale | Pays | Langage
 `fr-FR`|France|Français
 
 ## Démo
-http://chronogolf.s3.amazonaws.com/booking-widget/demo.html
+http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html
 
 
 ## Licence
