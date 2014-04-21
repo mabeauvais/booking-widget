@@ -37,13 +37,13 @@
     };
   };
 
-  var buildUrl = function(clubId, tld, lang) {
+  var buildUrl = function(clubId, tld, lang, action) {
     if (isDev()) {
-      return 'http://chronodev.' + tld + ':5000/' + lang + '/golf_clubs/widget/' + clubId;
+      return 'http://chronodev.' + tld + ':5000/' + lang + '/golf_clubs/' + action + '/' + clubId;
     } else if (isStaging()) {
-      return 'http://staging.chronogolf.' + tld + '/' + lang + '/golf_clubs/widget/' + clubId;
+      return 'http://staging.chronogolf.' + tld + '/' + lang + '/golf_clubs/' + action + '/' + clubId;
     } else {
-      return 'http://www.chronogolf.' + tld + '/' + lang + '/golf_clubs/widget/' + clubId;
+      return 'http://www.chronogolf.' + tld + '/' + lang + '/golf_clubs/' + action + '/' + clubId;
     }
   };
 
@@ -102,12 +102,12 @@
     return image;
   };
 
-  var buildButton = function(lang) {
+  var buildButton = function(clubId, I18n) {
     var button   = document.createElement('a');
-    var image    = buildImg(lang);
+    var image    = buildImg(I18n.lang);
 
     button.id   = 'cg-booking-button';
-    button.href = '';
+    button.href = buildUrl(clubId, I18n.tld, I18n.lang, 'book');
 
     button.appendChild(image);
     wrapper.appendChild(button);
@@ -139,9 +139,10 @@
     var clubId = wrapper.getAttribute('data-id');
     var locale = wrapper.getAttribute('data-locale') || 'en-US';
     var I18n   = parseLocale(locale);
-    var url    = buildUrl(clubId, I18n.tld, I18n.lang);
+    var url    = buildUrl(clubId, I18n.tld, I18n.lang, 'widget');
 
-    var button = buildButton(I18n.lang);
+    var button = buildButton(clubId, I18n);
+
     buildIFrame(url);
     if(!window.mobileBrowser()) { button.onclick = toggleWidget; }
     listenForCallback(url);
