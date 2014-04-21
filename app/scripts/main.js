@@ -143,7 +143,7 @@
 
     var button = buildButton(I18n.lang);
     buildIFrame(url);
-    button.onclick = toggleWidget;
+    if(!window.mobileBrowser()) { button.onclick = toggleWidget; }
     listenForCallback(url);
   };
 
