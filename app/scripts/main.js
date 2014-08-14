@@ -149,7 +149,7 @@
         buildIFrame(url);
         return false;
       };
-      button.onclick = function() {
+      button.onclick = button.ontouchend = function() {
         buildIFrame(url);
         toggleWidget();
         return false;
