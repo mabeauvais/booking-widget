@@ -4,6 +4,7 @@
 
 (function() {
 
+  var iFrameLoaded = false;
   var wrapper = document.getElementById('cg-booking-widget');
   var amazonUrl = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
 
@@ -71,11 +72,11 @@
     } else {
       el.setAttribute('class', classNames[0]);
     }
-
-    return false;
   };
 
   var buildIFrame = function(url) {
+    if(iFrameLoaded){ return; } else { iFrameLoaded = true; }
+
     var iframe = document.createElement('iframe');
 
     iframe.id            = 'cg-booking-frame';
@@ -143,8 +144,17 @@
 
     var button = buildButton(clubId, I18n);
 
-    buildIFrame(url);
-    if(!window.mobileBrowser()) { button.onclick = toggleWidget; }
+    if(!window.mobileBrowser()) {
+      button.onmouseover = function() {
+        buildIFrame(url);
+        return false;
+      }
+      button.onclick = function() {
+        buildIFrame(url);
+        toggleWidget();
+        return false;
+      };
+    }
     listenForCallback(url);
   };
 
