@@ -7,6 +7,7 @@
   var iFrameLoaded = false;
   var wrapper = document.getElementById('cg-booking-widget');
   var amazonUrl = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
+  var altText = 'Golf Online Booking - Chronogolf';
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -99,16 +100,20 @@
     var image  = document.createElement('img');
 
     image.src = imgUrl;
+    image.alt = altText;
 
     return image;
   };
 
   var buildButton = function(clubId, I18n) {
-    var button   = document.createElement('a');
-    var image    = buildImg(I18n.lang);
+    var button = document.createElement('a');
+    var image  = buildImg(I18n.lang);
+    var url    = buildUrl(clubId, I18n.tld, I18n.lang, 'book');
+    var title  = altText;
 
-    button.id   = 'cg-booking-button';
-    button.href = buildUrl(clubId, I18n.tld, I18n.lang, 'book');
+    button.id    = 'cg-booking-button';
+    button.href  = url;
+    button.title = title;
 
     button.appendChild(image);
     wrapper.appendChild(button);
