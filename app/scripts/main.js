@@ -39,6 +39,28 @@
     };
   };
 
+  var getI18n = function() {
+    var locale = wrapper.getAttribute('data-locale') || 'en-US';
+    return parseLocale(locale);
+  };
+
+  var get_powered_url = function() {
+    var i18n = getI18n();
+    var url_lang = "";
+    if (i18n.lang === 'fr' && i18n.tld === 'ca') {
+      url_lang = '/' + i18n.lang;
+    }
+    return "http://pro.chronogolf." + i18n.tld + url_lang + "?utm_source=booking-widget&utm_medium=inbound&utm_campaign=powered-by-chronogolf-pro";
+  };
+
+  var get_powered_title = function() {
+    var text = {
+      'en': 'Powered by Chronogolf PRO',
+      'fr': 'Propulsé par Chronogolf PRO'
+    };
+    return text[getI18n().lang];
+  };
+
   var buildUrl = function(clubId, tld, lang, action) {
     if (isDev()) {
       return 'http://chronodev.' + tld + ':5000/' + lang + '/golf_clubs/' + action + '/' + clubId;
@@ -89,7 +111,16 @@
     iframe.marginWidth   = '0';
     iframe.frameBorder   = '0';
 
+    var powered_by = document.createElement('a');
+
+    powered_by.id        = 'cg-booking-powered';
+    powered_by.href      = get_powered_url();
+    powered_by.title     = get_powered_title();
+    powered_by.target    = '_blank';
+    powered_by.innerText = get_powered_title();
+
     wrapper.appendChild(iframe);
+    wrapper.appendChild(powered_by);
   };
 
   var buildImg = function(lang) {
@@ -114,6 +145,7 @@
     button.id    = 'cg-booking-button';
     button.href  = url;
     button.title = title;
+    button.target = '_blank'
 
     button.appendChild(image);
     wrapper.appendChild(button);

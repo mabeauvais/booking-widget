@@ -54,6 +54,8 @@ $wrapper-width      : $button-width + $frame-width
   #cg-booking-frame
     right: 0
 
+  #cg-booking-powered
+    right: 0
 
   &.cg--show
     right: 0
@@ -73,6 +75,8 @@ $wrapper-width      : $button-width + $frame-width
       right: auto
       left: 0
 
+    #cg-booking-powered
+      left: 0
 
     &.cg--show
       right: auto
@@ -130,3 +134,22 @@ $wrapper-width      : $button-width + $frame-width
   border: 0
   outline: 0
 
+//
+//  POWERED
+//
+#cg-booking-powered
+  z-index: 1
+  position: absolute
+  bottom: 0px
+  width: 300px
+  text-align: center
+  display: block
+  padding: 10px 10px
+  color: #D2D2D2
+  font-size: 10px
+  font-family: Arial
+  text-decoration: none
+  background-color: #F9F9F9
+
+  &:hover
+    color: #18572C
