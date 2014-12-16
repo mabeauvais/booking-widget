@@ -34,6 +34,7 @@ Locale | Country | Language
 `fr-CA`|Canada|French
 `en-US`|United-States|English
 `fr-FR`|France|French
+`es-ES`|Spain|Spanish
 
 ## Demo
 http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html
@@ -81,6 +82,7 @@ Locale | Pays | Langage
 `fr-CA`|Canada|Français
 `en-US`|États-Unis|Anglais
 `fr-FR`|France|Français
+`es-ES`|Espagne|Espagnole
 
 ## Démo
 http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html
