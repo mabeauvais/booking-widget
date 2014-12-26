@@ -22,7 +22,9 @@
   var tldLookup = {
     'CA': 'ca',
     'US': 'com',
-    'FR': 'fr'
+    'FR': 'fr',
+    'ES': 'es',
+    'MA': 'ma'
   };
 
   var getTld = function(countryCode) {
@@ -56,7 +58,8 @@
   var get_powered_title = function() {
     var text = {
       'en': 'Powered by Chronogolf PRO',
-      'fr': 'Propulsé par Chronogolf PRO'
+      'fr': 'Propulsé par Chronogolf PRO',
+      'es': 'Provisto por Chronogolf PRO'
     };
     return text[getI18n().lang];
   };
@@ -124,12 +127,12 @@
   };
 
   var buildImg = function(lang) {
-    var imgUrl = 'images/cg-booking-button-' + lang + '.png';
+    var imgUrl = 'images/cg-booking-button-' + lang + '@2x.png';
     if (!isDev()) {
       imgUrl = amazonUrl + imgUrl;
     }
     var image  = document.createElement('img');
-
+    image.width = 50;
     image.src = imgUrl;
     image.alt = altText;
 
