@@ -5,7 +5,7 @@
  * Copyright (c) 2015 Chronogolf Inc.
 */
 
-;(function() {
+(function() {
   'use strict';
 
   var BookingWidget;
@@ -37,7 +37,7 @@
           return false;
         };
       }
-      listenForCallback(url);
+      listenForCallback();
     }
 
     var iFrameLoaded = false;
@@ -82,16 +82,16 @@
       return parseLocale(locale);
     };
 
-    var get_powered_url = function() {
+    var getPoweredURL = function() {
       var i18n = getI18n();
-      var url_lang = "";
+      var urlLang = '';
       if (i18n.lang === 'fr' && i18n.tld === 'ca') {
-        url_lang = '/' + i18n.lang;
+        urlLang = '/' + i18n.lang;
       }
-      return "http://pro.chronogolf." + i18n.tld + url_lang + "?utm_source=booking-widget&utm_medium=inbound&utm_campaign=powered-by-chronogolf-pro";
+      return 'http://pro.chronogolf.' + i18n.tld + urlLang + '?utm_source=booking-widget&utm_medium=inbound&utm_campaign=powered-by-chronogolf-pro';
     };
 
-    var get_powered_title = function() {
+    var getPoweredTitle = function() {
       var text = {
         'en': 'Powered by Chronogolf PRO',
         'fr': 'Propulsé par Chronogolf PRO',
@@ -114,7 +114,7 @@
       return url;
     };
 
-    var listenForCallback = function(url) {
+    var listenForCallback = function() {
       var eventMethod  = window.addEventListener ? 'addEventListener' : 'attachEvent';
       var eventer      = window[eventMethod];
       var messageEvent = eventMethod === 'attachEvent' ? 'onmessage' : 'message';
@@ -152,16 +152,16 @@
       iframe.marginWidth   = '0';
       iframe.frameBorder   = '0';
 
-      var powered_by = document.createElement('a');
+      var poweredBy = document.createElement('a');
 
-      powered_by.id        = 'cg-booking-powered';
-      powered_by.href      = get_powered_url();
-      powered_by.title     = get_powered_title();
-      powered_by.target    = '_blank';
-      powered_by.innerText = get_powered_title();
+      poweredBy.id        = 'cg-booking-powered';
+      poweredBy.href      = getPoweredURL();
+      poweredBy.title     = getPoweredTitle();
+      poweredBy.target    = '_blank';
+      poweredBy.innerText = getPoweredTitle();
 
       wrapper.appendChild(iframe);
-      wrapper.appendChild(powered_by);
+      wrapper.appendChild(poweredBy);
     };
 
     var buildImg = function(lang) {
@@ -186,7 +186,7 @@
       button.id    = 'cg-booking-button';
       button.href  = url;
       button.title = title;
-      button.target = '_blank'
+      button.target = '_blank';
 
       button.appendChild(image);
       wrapper.appendChild(button);
