@@ -13,7 +13,7 @@ This plugin installs Chronogolf's booking widget on your golf club's website.
 2. Copy and paste this HTML snippet at the bottom of your pages (before the `</body>`) 
 	
 		<div id="cg-booking-widget" data-id="ID" data-locale="LOCALE"></div>
-		<script type="text/javascript" src="//chronogolf.s3.amazonaws.com/plugins/booking-widget/cg-booking-widget.min.js"></script>
+		<script type="text/javascript" src="//cdn2.chronogolf.com/plugins/booking-widget/cg-booking-widget.min.js"></script>
 	
 3. Replace `ID` with your Chronogolf ID
 4. Replace `LOCALE` with your regional settings (see table below)
@@ -61,7 +61,7 @@ Ce module installe le widget de réservation de Chronogolf sur le site web de vo
 2. Copiez et collez ce code HTML à la fin de vos pages (avant la balise `</body>`)
 
 		<div id="cg-booking-widget" data-id="ID" data-locale="LOCALE"></div>
-		<script type="text/javascript" src="//chronogolf.s3.amazonaws.com/plugins/booking-widget/cg-booking-widget.min.js"></script>
+		<script type="text/javascript" src="//cdn2.chronogolf.com/plugins/booking-widget/cg-booking-widget.min.js"></script>
 	
 3. Remplacez `ID` avec votre identifiant Chronogolf.
 4. Remplacez `LOCALE` avec vos paramètres régionaux (voir tableau ci-dessous)
