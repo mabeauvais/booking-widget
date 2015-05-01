@@ -1,44 +1,37 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Chronogolf Booking Widget by chronogolf</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Chronogolf Booking Widget</h1>
-        <p>This plugin installs Chronogolf&#39;s booking widget on your golf club&#39;s website.</p>
+    <section class="page-header">
+      <h1 class="project-name">Chronogolf Booking Widget</h1>
+      <h2 class="project-tagline">This plugin installs Chronogolf&#39;s booking widget on your golf club&#39;s website.</h2>
+      <a href="https://github.com/chronogolf/booking-widget" class="btn">View on GitHub</a>
+      <a href="https://github.com/chronogolf/booking-widget/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/chronogolf/booking-widget/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <p class="view"><a href="https://github.com/chronogolf/booking-widget">View the Project on GitHub <small>chronogolf/booking-widget</small></a></p>
+    <section class="main-content">
+      <p><a href="#fr">Instructions en Français, cliquez-ici.</a></p>
 
+<hr>
 
-        <ul>
-          <li><a href="https://github.com/chronogolf/booking-widget/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/chronogolf/booking-widget/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/chronogolf/booking-widget">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <p><a href="#fr">Instructions en Français, cliquez-ici.</a></p>
-
-<hr><p><img src="http://chronogolf.s3.amazonaws.com/promotionals/logos/cg-crest.png" alt="Chronogolf"></p>
+<p><img src="http://chronogolf.s3.amazonaws.com/promotionals/logos/cg-crest.png" alt="Chronogolf"></p>
 
 <h1>
-<a name="chronogolf-booking-widget" class="anchor" href="#chronogolf-booking-widget"><span class="octicon octicon-link"></span></a>Chronogolf Booking Widget</h1>
+<a id="chronogolf-booking-widget" class="anchor" href="#chronogolf-booking-widget" aria-hidden="true"><span class="octicon octicon-link"></span></a>Chronogolf Booking Widget</h1>
 
 <p>This plugin installs Chronogolf's booking widget on your golf club's website.</p>
 
 <h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <ol>
 <li>Contact us to get your Chronogolf ID</li>
@@ -46,42 +39,52 @@
 <p>Copy and paste this HTML snippet at the bottom of your pages (before the <code>&lt;/body&gt;</code>) </p>
 
 <pre><code>&lt;div id="cg-booking-widget" data-id="ID" data-locale="LOCALE"&gt;&lt;/div&gt;
-&lt;script type="text/javascript" src="//chronogolf.s3.amazonaws.com/plugins/booking-widget/cg-booking-widget.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="//cdn2.chronogolf.com/plugins/booking-widget/cg-booking-widget.min.js"&gt;&lt;/script&gt;
 </code></pre>
 </li>
 <li><p>Replace <code>ID</code> with your Chronogolf ID</p></li>
 <li>Replace <code>LOCALE</code> with your regional settings (see table below)</li>
-</ol><h2>
-<a name="options" class="anchor" href="#options"><span class="octicon octicon-link"></span></a>Options</h2>
+</ol>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
 
 <p>Options can be passed via data attributes. Append the option name to <code>data-</code>, as in <code>data-position=""</code>.</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>name</th>
 <th>type</th>
 <th>description</th>
 <th>values</th>
 <th>default</th>
-</tr></thead>
-<tbody><tr>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>position</td>
 <td>string</td>
 <td>Position of the button</td>
 <td>left, right</td>
 <td>'right'</td>
-</tr></tbody>
-</table><h2>
-<a name="regional-settings" class="anchor" href="#regional-settings"><span class="octicon octicon-link"></span></a>Regional Settings</h2>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="regional-settings" class="anchor" href="#regional-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regional Settings</h2>
 
 <p>The <code>LOCALE</code> tells the widget in which language to render and on which  domain to redirect (e.g. fr-CA =&gt; French, <a href="http://www.chronogolf.ca/fr">www.chronogolf.ca/fr</a>)</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Locale</th>
 <th>Country</th>
 <th>Language</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td><code>en-CA</code></td>
@@ -103,28 +106,37 @@
 <td>France</td>
 <td>French</td>
 </tr>
+<tr>
+<td><code>es-ES</code></td>
+<td>Spain</td>
+<td>Spanish</td>
+</tr>
 </tbody>
-</table><h2>
-<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+</table>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
 
 <p><a href="http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html">http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html</a></p>
 
 <h2>
-<a name="licence" class="anchor" href="#licence"><span class="octicon octicon-link"></span></a>Licence</h2>
+<a id="licence" class="anchor" href="#licence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licence</h2>
 
 <p>Copyright © 2014 Chronogolf Inc.</p>
 
-<hr><p><a name="fr"></a></p>
+<hr>
+
+<p><a name="fr"></a></p>
 
 <p><img src="http://chronogolf.s3.amazonaws.com/promotionals/logos/cg-crest.png" alt="Chronogolf"></p>
 
 <h1>
-<a name="widget-de-r%C3%A9servation-de-chronogolf" class="anchor" href="#widget-de-r%C3%A9servation-de-chronogolf"><span class="octicon octicon-link"></span></a>Widget de réservation de Chronogolf</h1>
+<a id="widget-de-réservation-de-chronogolf" class="anchor" href="#widget-de-r%C3%A9servation-de-chronogolf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Widget de réservation de Chronogolf</h1>
 
 <p>Ce module installe le widget de réservation de Chronogolf sur le site web de votre club de golf.</p>
 
 <h2>
-<a name="installation-1" class="anchor" href="#installation-1"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation-1" class="anchor" href="#installation-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <ol>
 <li>Contactez-nous afin d'obtenir votre identifiant Chronogolf.</li>
@@ -132,42 +144,52 @@
 <p>Copiez et collez ce code HTML à la fin de vos pages (avant la balise <code>&lt;/body&gt;</code>)</p>
 
 <pre><code>&lt;div id="cg-booking-widget" data-id="ID" data-locale="LOCALE"&gt;&lt;/div&gt;
-&lt;script type="text/javascript" src="//chronogolf.s3.amazonaws.com/plugins/booking-widget/cg-booking-widget.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="//cdn2.chronogolf.com/plugins/booking-widget/cg-booking-widget.min.js"&gt;&lt;/script&gt;
 </code></pre>
 </li>
 <li><p>Remplacez <code>ID</code> avec votre identifiant Chronogolf.</p></li>
 <li>Remplacez <code>LOCALE</code> avec vos paramètres régionaux (voir tableau ci-dessous)</li>
-</ol><h2>
-<a name="options-1" class="anchor" href="#options-1"><span class="octicon octicon-link"></span></a>Options</h2>
+</ol>
+
+<h2>
+<a id="options-1" class="anchor" href="#options-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
 
 <p>Les options peuvent être configurées au travers des attributs “data”. Annexez le nom de l’option à <code>data-</code>, par exemple <code>data-position=""</code>.</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>nom</th>
 <th>type</th>
 <th>description</th>
 <th>valeurs</th>
 <th>défaut</th>
-</tr></thead>
-<tbody><tr>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td>position</td>
 <td>string</td>
 <td>Position du bouton</td>
 <td>left, right</td>
 <td>'right'</td>
-</tr></tbody>
-</table><h2>
-<a name="param%C3%A8tres-r%C3%A9gionaux" class="anchor" href="#param%C3%A8tres-r%C3%A9gionaux"><span class="octicon octicon-link"></span></a>Paramètres régionaux</h2>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="paramètres-régionaux" class="anchor" href="#param%C3%A8tres-r%C3%A9gionaux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paramètres régionaux</h2>
 
 <p>L'option <code>LOCALE</code> indique au widget la langue et le pays de votre club de golf (ex: fr-CA =&gt; Français, <a href="http://www.chronogolf.ca/fr">www.chronogolf.ca/fr</a>)</p>
 
 <table>
-<thead><tr>
+<thead>
+<tr>
 <th>Locale</th>
 <th>Pays</th>
 <th>Langage</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td><code>en-CA</code></td>
@@ -189,23 +211,33 @@
 <td>France</td>
 <td>Français</td>
 </tr>
+<tr>
+<td><code>es-ES</code></td>
+<td>Espagne</td>
+<td>Espagnole</td>
+</tr>
 </tbody>
-</table><h2>
-<a name="d%C3%A9mo" class="anchor" href="#d%C3%A9mo"><span class="octicon octicon-link"></span></a>Démo</h2>
+</table>
+
+<h2>
+<a id="démo" class="anchor" href="#d%C3%A9mo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Démo</h2>
 
 <p><a href="http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html">http://chronogolf.s3.amazonaws.com/plugins/booking-widget/demos/demo.html</a></p>
 
 <h2>
-<a name="licence-1" class="anchor" href="#licence-1"><span class="octicon octicon-link"></span></a>Licence</h2>
+<a id="licence-1" class="anchor" href="#licence-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licence</h2>
 
 <p>Copyright © 2014 Chronogolf Inc.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/chronogolf">chronogolf</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/chronogolf/booking-widget">Chronogolf Booking Widget</a> is maintained by <a href="https://github.com/chronogolf">chronogolf</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+    </section>
+
+  
   </body>
 </html>
+
