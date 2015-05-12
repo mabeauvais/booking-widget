@@ -5,22 +5,30 @@
  * Copyright (c) 2015 Chronogolf Inc.
 */
 
-(function() {
+(function BookingWidget() {
   'use strict';
 
-  function BookingWidget() {
+  var wrapper      = document.getElementById('cg-booking-widget');
+
+  var clubId = wrapper.getAttribute('data-id');
+  var locale = wrapper.getAttribute('data-locale') || 'en-US';
+
+  var iFrameLoaded = false;
+  var body         = document.getElementsByTagName('body')[0];
+  var amazonUrl    = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
+  var altText      = 'Golf Online Booking - Chronogolf';
+
+  var I18n, url, button;
+
+  var init = function() {
+
+    I18n   = parseLocale(locale);
+    url    = buildUrl(clubId, I18n.tld, I18n.lang, 'widget');
+    button = buildButton(clubId, I18n);
+
     if (!isDev()) {
       loadCSS(amazonUrl);
     }
-
-    setPosition();
-
-    var clubId = wrapper.getAttribute('data-id');
-    var locale = wrapper.getAttribute('data-locale') || 'en-US';
-    var I18n   = parseLocale(locale);
-    var url    = buildUrl(clubId, I18n.tld, I18n.lang, 'widget');
-
-    var button = buildButton(clubId, I18n);
 
     if(!mobileBrowser()) {
       button.onmouseover = function() {
@@ -34,13 +42,9 @@
       };
     }
 
+    setPosition();
     listenForCallback();
   }
-
-  var iFrameLoaded = false;
-  var wrapper      = document.getElementById('cg-booking-widget');
-  var amazonUrl    = 'http://chronogolf.s3.amazonaws.com/plugins/booking-widget/';
-  var altText      = 'Golf Online Booking - Chronogolf';
 
   var isDev = function() {
     var env = wrapper.getAttribute('data-env');
@@ -124,14 +128,15 @@
   };
 
   var toggleWidget = function() {
-    var el         = document.getElementById('cg-booking-widget');
-    var classNames = el.className.split(' ');
+    var classNames = wrapper.className.split(' ');
     var isShown    = (classNames.indexOf('cg--show') === -1) ? false : true;
 
     if (isShown === false) {
-      el.setAttribute('class', classNames[0] + ' ' + 'cg--show');
+      wrapper.setAttribute('class', classNames[0] + ' ' + 'cg--show');
+      button.setAttribute('class', classNames[0] + ' ' + 'cg--show');
     } else {
-      el.setAttribute('class', classNames[0]);
+      wrapper.setAttribute('class', classNames[0]);
+      button.setAttribute('class', classNames[0]);
     }
   };
 
@@ -143,7 +148,7 @@
     iframe.id            = 'cg-booking-frame';
     iframe.src           = url;
     iframe.scrolling     = 'auto';
-    iframe.width         = '33%';
+    iframe.width         = '320';
     iframe.height        = '100%';
     iframe.marginHeight  = '0';
     iframe.marginWidth   = '0';
@@ -186,13 +191,16 @@
     button.target = '_blank';
 
     button.appendChild(image);
-    wrapper.appendChild(button);
+    body.appendChild(button);
     return button;
   };
 
   var setPosition = function() {
     var position = wrapper.getAttribute('data-position');
-    if (position === 'left') { wrapper.setAttribute('class', 'cg--left'); }
+    if (position === 'left') {
+      wrapper.setAttribute('class', 'cg--left');
+      button.setAttribute('class', 'cg--left');
+    }
   };
 
   var loadCSS = function(amazonUrl) {
@@ -217,6 +225,6 @@
     return check;
   };
 
-  new BookingWidget();
+  init();
 
 })();

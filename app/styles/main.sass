@@ -19,7 +19,7 @@ $button-width       : 50px
 $frame-width        : 320px
 $frame-border-width : 1px
 
-$wrapper-width      : $button-width + $frame-width
+$wrapper-width      : $frame-width
 
 
 
@@ -46,7 +46,7 @@ $wrapper-width      : $button-width + $frame-width
   //
   //  POSITION: RIGHT (default)
   //
-  right: ($frame-width + $frame-border-width) * -1
+  right: ($frame-width) * -1
 
   #cg-booking-button
     left: 0
@@ -65,7 +65,7 @@ $wrapper-width      : $button-width + $frame-width
   //
   &.cg--left
     right: auto
-    left: ($frame-width + $frame-border-width) * -1
+    left: ($frame-width) * -1
 
     #cg-booking-button
       left: auto
@@ -88,18 +88,20 @@ $wrapper-width      : $button-width + $frame-width
 //  BUTTON
 //
 #cg-booking-button
+  z-index: 99999
   display: block
   width: $button-width
 
-  position: absolute
+  position: fixed
 
   background-color: $color-grey
 
   // Default top
   top: 100px
+  right: 0px
 
-  +transition-property(opacity)
-  +transition-duration(200ms)
+  +transition-property(opacity, left, right)
+  +transition-duration(400ms)
   +transition-timing-function(cubic-bezier(0.230,  1.000, 0.320, 1.000))
 
   opacity: 0.85
@@ -113,6 +115,15 @@ $wrapper-width      : $button-width + $frame-width
   img
     border: 0
     outline: 0
+
+  &.cg--show
+    right: $frame-width
+
+  &.cg--left
+    right: auto
+    left: 0
+    &.cg--show
+      left: $frame-width
 
 .cg--show #cg-booking-button
   opacity: 1
