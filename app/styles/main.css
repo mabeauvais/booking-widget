@@ -1,0 +1,148 @@
+/* line 31, main.sass */
+#cg-booking-widget {
+  z-index: 99999;
+  width: 320px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  -moz-transition-property: left, right;
+  -o-transition-property: left, right;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -moz-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  right: -320px;
+}
+/* line 51, main.sass */
+#cg-booking-widget #cg-booking-button {
+  left: 0;
+}
+/* line 54, main.sass */
+#cg-booking-widget #cg-booking-frame {
+  right: 0;
+}
+/* line 57, main.sass */
+#cg-booking-widget #cg-booking-powered {
+  right: 0;
+}
+/* line 60, main.sass */
+#cg-booking-widget.cg--show {
+  right: 0;
+}
+/* line 66, main.sass */
+#cg-booking-widget.cg--left {
+  right: auto;
+  left: -320px;
+}
+/* line 70, main.sass */
+#cg-booking-widget.cg--left #cg-booking-button {
+  left: auto;
+  right: 40px;
+}
+/* line 74, main.sass */
+#cg-booking-widget.cg--left #cg-booking-frame {
+  right: auto;
+  left: 0;
+}
+/* line 78, main.sass */
+#cg-booking-widget.cg--left #cg-booking-powered {
+  left: 0;
+}
+/* line 81, main.sass */
+#cg-booking-widget.cg--left.cg--show {
+  right: auto;
+  left: 0;
+}
+
+/* line 90, main.sass */
+#cg-booking-button {
+  z-index: 99999;
+  display: block;
+  width: 60px;
+  position: fixed;
+  background-color: #D9D9D9;
+  top: 100px;
+  right: 40px;
+  -moz-transition-property: opacity, left, right;
+  -o-transition-property: opacity, left, right;
+  -webkit-transition-property: opacity, left, right;
+  transition-property: opacity, left, right;
+  -moz-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -moz-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -o-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  opacity: 0.85;
+  border: 0;
+  outline: 0;
+}
+/* line 112, main.sass */
+#cg-booking-button:hover {
+  opacity: 1;
+}
+/* line 115, main.sass */
+#cg-booking-button img {
+  border: 0;
+  outline: 0;
+}
+/* line 119, main.sass */
+#cg-booking-button.cg--show {
+  right: 320px;
+}
+/* line 122, main.sass */
+#cg-booking-button.cg--left {
+  right: auto;
+  left: 0;
+}
+/* line 125, main.sass */
+#cg-booking-button.cg--left.cg--show {
+  left: 320px;
+}
+
+/* line 128, main.sass */
+.cg--show #cg-booking-button {
+  opacity: 1;
+}
+
+/* line 135, main.sass */
+#cg-booking-frame {
+  display: block;
+  width: 320px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-color: #D9D9D9;
+  border: 0;
+  outline: 0;
+}
+
+/* line 151, main.sass */
+#cg-booking-powered {
+  z-index: 1;
+  position: absolute;
+  bottom: 0px;
+  width: 300px;
+  text-align: center;
+  display: block;
+  padding: 10px 10px;
+  color: #D2D2D2;
+  font-size: 10px;
+  font-family: Arial;
+  text-decoration: none;
+  background-color: #F9F9F9;
+}
+/* line 165, main.sass */
+#cg-booking-powered:hover {
+  color: #18572C;
+}
